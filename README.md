@@ -1,20 +1,24 @@
 # Full Stack Open - University of Helsinki
 
+### About this repository###
+This repository is for my solutions of [Full Stack Open](https://fullstackopen.com/en/) by University of Helsinki. 
+
 ### About the course
 The course serves as an introduction to modern web application development with JavaScript. The main focus is on building single page applications with ReactJS that use REST APIs built with Node.js. 
 
 **Course contents:**
-0. Fundamentals of web apps
-1. Introduction to React
-2. Communicating with server
-3. Programming a server with NodeJS and Express
-4. Testing Express servers, user administration
-5. Testing React apps
-6. Advanced state management
-7. React router, custom hooks, styling app with CSS and webpack
-8. GraphQL
-9. TypeScript
-10. React Native
-11. CI/CD
-12. Containers
-13. Using relational databases
+
+Part 0 - Fundamentals of web apps
+Part 1 - Introduction to React
+Part 2 - Communicating with server
+Part 3 - Programming a server with NodeJS and Express
+Part 4 - Testing Express servers, user administration
+Part 5 - Testing React apps
+Part 6 - Advanced state management
+Part 7 - React router, custom hooks, styling app with CSS and webpack
+Part 8 - GraphQL
+Part 9 - TypeScript
+Part 10 - React Native
+Part 11 - CI/CD
+Part 12 - Containers
+Part 13 - Using relational databases
