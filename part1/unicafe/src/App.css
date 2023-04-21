@@ -1,0 +1,23 @@
+.App {
+  justify-content: center;
+  align-items: center;
+}
+
+.HeaderBold {
+  text-align: center;
+  font-weight: bold;
+  font-size: xx-large;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.Button {
+  margin: 0 10px;
+  font-size: larger;
+  padding: 10px 20px;
+  background-color: aquamarine;
+}
+
+.text-center {
+  text-align: center;
+}
+
