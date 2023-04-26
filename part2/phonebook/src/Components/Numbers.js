@@ -1,3 +1,12 @@
-const Numbers = ({name, number}) => <p>{name}: {number}</p>
 
+
+const Numbers = ({name, number, deletePerson}) => {
+
+
+    return(
+        <>
+    <p>{name}: {number} <button onClick={deletePerson}>delete</button></p>
+    </>
+    )
+}
 export default Numbers
