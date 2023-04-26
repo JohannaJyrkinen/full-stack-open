@@ -3,10 +3,14 @@ import PersonForm from './Components/PersonForm'
 import Numbers from './Components/Numbers'
 import Filter from './Components/Filter'
 import personService from './services/persons'
+import Notification from './Components/Notification'
+import Error from './Components/ErrorInfo'
 
 const App = () => {
   
   const [persons, setPersons] = useState([])
+  const [successMessage, setSuccessMessage] = useState(null)
+  const [errorMessage, setErrorMessage] = useState(null)
 
   useEffect(()=> {
     console.log('effect')
@@ -33,6 +37,19 @@ const App = () => {
           setPersons(persons.map(person => person.id !== existingPerson.id ? person: returnedPerson))
           setNewName('')
           setNewNumber('')
+          setSuccessMessage(`Updated ${newName}`)
+          setTimeout(() => {
+            setSuccessMessage(null)
+          }, 5000)
+        })
+        .catch(error => {
+          setErrorMessage(
+            `Information of '${newName}' has already been removed from server`
+          )
+          setTimeout(() => {
+            setErrorMessage(null)
+          }, 5000)
+          setPersons(persons.filter(person => person.id !== existingPerson.id))
         })
       }
     } else {
@@ -43,6 +60,10 @@ const App = () => {
         setNewName('')
         setNewNumber('')
         console.log(returnedPerson)
+        setSuccessMessage(`Added ${newName}`)
+        setTimeout(() => {
+          setSuccessMessage(null)
+        }, 5000)
       })
     }
   }
@@ -55,9 +76,13 @@ const App = () => {
       .then(() => {
         setPersons(persons.filter(person =>person.id !== id))
         console.log('removed id', id, 'name: ',personToDelete.name)
+        setSuccessMessage(`Deleted ${personToDelete.name}`)
+        setTimeout(() => {
+          setSuccessMessage(null)
+        }, 5000)
     })
     } else {
-      console.log('Nothing happened')
+      console.log('User canceled')
     }
     
 
@@ -68,17 +93,14 @@ const App = () => {
   const [filter, setFilter] =useState('')
 
   const handleChange = (event) => {
-    console.log(event.target.value)
     setNewName(event.target.value)
   }
 
   const handleNumberChange = (event) =>{
-    console.log(event.target.value)
     setNewNumber(event.target.value)
   }
 
   const handleFilterchange = (event) => {
-    console.log(event.target.value)
     setFilter(event.target.value)
   }
 
@@ -89,6 +111,8 @@ const App = () => {
   return (
     <div>
       <h1>Phonebook</h1>
+      <Error message={errorMessage}/>
+      <Notification message={successMessage}/>
       <Filter filter={handleFilterchange} />
       <h2>Add a new number</h2>
       <PersonForm addPerson={addPerson} handleChange={handleChange} handleNumberChange={handleNumberChange} newName={newName} newNumber={newNumber}/>
