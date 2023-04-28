@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "axios"
 
 const baseUrl = 'https://restcountries.com/v3.1/all?fields=name,flags,capital,languages,area,latlng'
 
@@ -7,4 +7,6 @@ const getAll = () => {
     return request.then(response => response.data)
 }
 
-export default { getAll }
+const countryService = { getAll }
+
+export default countryService

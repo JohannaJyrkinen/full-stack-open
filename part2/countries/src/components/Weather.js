@@ -20,7 +20,7 @@ const Weather = ({lat, long, capital}) => {
             setIcon(response.data.weather[0].icon)
             console.log(response.data)
           })
-    }, [])
+    }, [weatherUrl])
 
     if(!weather) {
         return <p>Cannot find weather data</p>
@@ -30,7 +30,7 @@ const Weather = ({lat, long, capital}) => {
         <div>
         <h2>Weather in {capital}</h2>
         <p>temperature {weather.main.temp} Celsius</p>
-        <img src={iconUrl} ></img>
+        <img src={iconUrl} alt="Weather icon"></img>
         <p>wind {weather.wind.speed} m/s</p>
         </div>
     )

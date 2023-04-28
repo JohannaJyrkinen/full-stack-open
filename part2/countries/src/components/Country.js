@@ -1,5 +1,3 @@
-
-import { useEffect, useState } from "react";
 import Weather from "./Weather";
 
 const Country = ({country}) => {
@@ -16,7 +14,7 @@ const Country = ({country}) => {
             <li key={code}>{name}</li>))
         }
         <br />
-        <img src={country.flags.png}></img>
+        <img src={country.flags.png} alt="flag"></img>
         <Weather lat={country.latlng[0]} long={country.latlng[1]} capital={country.capital}/>
         </>
     )
